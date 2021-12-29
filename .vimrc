@@ -1,27 +1,31 @@
-"VUNDLE
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-"Examples of different formats supported.
-"Keep Plugin commands between vundle#begin/end.
-"
-"Plugin on GitHub repo
-"Plugin 'tpope/vim-fugitive'
-"
-"Plugin from http://vim-scripts.org/vim/scripts.html
-"Plugin 'L9'
-"
-"Git plugin not hosted on GitHub
-"Plugin 'git://git.wincent.com/command-t.git'
-"
-"Git repos on your local machine (i.e. when working on your own plugin)
-"Plugin 'file:///home/gmarik/path/to/plugin'
-"
-" All of your Plugins must be added before the following line
-
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+Plugin 'tpope/vim-fugitive'
+" plugin from http://vim-scripts.org/vim/scripts.html
+" Plugin 'L9'
+" Git plugin not hosted on GitHub
+Plugin 'git://git.wincent.com/command-t.git'
+" git repos on your local machine (i.e. when working on your own plugin)
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Install L9 and avoid a Naming conflict if you've already installed a
+" different version somewhere else.
+" Plugin 'ascenator/L9', {'name': 'newL9'}
+Plugin 'valloric/youcompleteme'
 Plugin 'itchyny/lightline.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'terryma/vim-smooth-scroll'
@@ -29,11 +33,12 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'NLKNguyen/papercolor-theme'
-
+" All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
+"
 " Brief help
 " :PluginList       - lists configured plugins
 " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
@@ -41,29 +46,23 @@ filetype plugin indent on    " required
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 "
 " see :h vundle for more details or wiki for FAQ
-
-syntax on
-set t_Co=256
-set background=light
-colorscheme PaperColor
-autocmd vimenter * NERDTree
-set nocompatible
+" Put your non-Plugin stuff after this line
+"
+au VimEnter *  NERDTree
 inoremap jk <ESC>
-let mapleader=""
+let mapleader = "'"
 set number
 set noswapfile
 set hlsearch
 set ignorecase
 set incsearch
 syntax enable
-filetype plugin on
 set backspace=indent,eol,start
 set path+=**
 set colorcolumn=72
 set wildmenu
+" <Ctrl-l> redraws the screen and removes any search highlighting.
 nnoremap <silent> <C-l> :nohl<CR><C-l>
-
-
 set wrap
 set formatoptions=tcqrn1
 set tabstop=2
