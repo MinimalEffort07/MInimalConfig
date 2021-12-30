@@ -142,5 +142,5 @@ source /Users/emmanuelchristianos/.oh-my-zsh/custom/themes/powerlevel10k/powerle
 
 bindkey '^L' end-of-line
 bindkey '^K' backward-kill-line
- 
-##cc
+figlet "MinimalEffort07" | lolcat
+date | figlet | lolcat
